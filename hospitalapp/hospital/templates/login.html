@@ -1,0 +1,41 @@
+{% include 'base.html' %}
+{% include 'navigation.html' %}
+{% block content %}
+
+<script>
+    
+    
+</script>
+
+
+<style>
+    body{
+        background-image: url('https://media.gettyimages.com/id/1477540105/photo/checking-on-medical-students.jpg?s=2048x2048&w=gi&k=20&c=FFVuDHYc9lfPFab9xoWSvlkYJXDAZ_Oh_RQDD74g0AI=');
+        background-size: cover;
+        no-repeat;
+        color: black;
+        sans-serif;
+        padding: 20px;
+        text-align: center;
+        
+
+
+    }
+</style>
+
+<div class="container">
+    <h2 class="text-center">Admin Login</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <lable><b>Username</b></lable>
+        <input type="text" class="form-control" name="uname">
+        <lable><b>Password</b></lable>
+        <input type="password" class="form-control" name="pwd"><br>
+        <input type="submit" value="Login" class="form-control btn btn-success">
+        <p><b>Don't have an account? </b><a href="{% url 'register' %}">Register here</a></p><a href="{% url 'user_login' %}">User Login</a>
+
+    </form>
+
+</div>
+{% endblock content %}
+{% include 'footer.html' %}

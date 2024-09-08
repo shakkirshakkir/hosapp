@@ -1,0 +1,47 @@
+{% include 'base.html' %}
+{% include 'navigation.html' %}
+{% block content %}
+<style>
+    body{
+        background-image: url('https://media.gettyimages.com/id/1394729033/photo/daughter-analyzing-test-results-of-old-father-in-hospital.jpg?s=2048x2048&w=gi&k=20&c=w3tob6bzxvTeJP0Yd84tljHJcRZS8lqRYoF2iQgLog4=');
+        background-size: cover;
+        no-repeat;
+        color: black;
+        sans-serif;
+        padding: 20px;
+        text-align: center;
+        
+
+
+    }
+</style>
+
+<div class="container">
+    <h2 class="text-center">Add Appointment</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <lable><b>Doctor Name</b></lable>
+        <!-- <input type="text" class="form-control" name="doctorapp"> -->
+         <select name="doctor" class="form-control">
+            {% for i in doctor %}
+            <option value="{{ i.Name}}">{{i.Name}}</option>
+            {% endfor %}
+         </select> 
+        <lable><b>Patient Name</b></lable>
+        <!-- <input type="text" class="form-control" name="patientapp"> -->
+         <select name="patient" class="form-control" type="text">
+            {% for i in patient %}
+            <option value="{{i.Name}}">{{i.Name}}</option>
+            {% endfor %}
+         </select>
+        <lable><b>Date</b></lable>
+        <input type="date" class="form-control" name="date">
+        <lable><b>Time</b></lable>
+        <input type="time" class="form-control" name="time" ><br>
+        <input type="submit" value="submit" class="form-control btn btn-success">
+    </form>
+
+</div>
+
+{% endblock content %}
+{% include 'footer.html' %}

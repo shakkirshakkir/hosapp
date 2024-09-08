@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Appointment Request</title>
+    <style>
+        body {
+           
+            background-image: url('https://media.gettyimages.com/id/1394769226/photo/doctor-and-nurse-analyzing-x-ray-at-hospital.jpg?s=2048x2048&w=gi&k=20&c=icoYLqS740wPj1iSnM4HBbLUW7H64aCGvGBfVKgIFxQ=');
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="date"],
+        textarea {
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Add Appointment Request</h1>
+        <form method="post">
+            <label for="username">Username:</label>
+        <input type="text" id="username" name="username" value="{{ request.user.username }}" readonly>
+            {% csrf_token %}
+            <div class="form-group">
+                
+                <label for="id_requested_date">Requested Date:</label>
+                {{ form.requested_date }}
+            </div>
+            <div class="form-group">
+                <label for="id_reason">Reason for Appointment:</label>
+                {{ form.reason }}
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

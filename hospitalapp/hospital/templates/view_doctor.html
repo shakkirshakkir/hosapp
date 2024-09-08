@@ -1,0 +1,48 @@
+{% include 'base.html' %}
+{% include 'navigation.html' %}
+{% block content %}
+<style>
+    body{
+        background-image: url('https://media.gettyimages.com/id/678960791/photo/view-of-operating-room-in-hospital.jpg?s=2048x2048&w=gi&k=20&c=HnWCxQBROairEbs5mSjAQAUkriId6NWY99hM8nDqTcM=');
+        background-size: cover;
+        no-repeat;
+        color: rgb(24, 22, 22);
+        sans-serif;
+        padding: 20px;
+        text-align: center;
+        
+
+
+    }
+</style><br>
+<div>
+    <h2>View Doctor</h2>
+    <table id="example" class="table table-dark">
+        <thead>
+            <tr>
+                <th>Doctor Id</th>
+                <th>Name</th>
+                <th>Mobile</th>
+                <th>Special</th>
+                <th>Delete</th>
+
+
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in doc %}
+            <tr>
+                <td>{{i.id}}</td>
+                <td>{{i.Name}}</td>
+                <td>{{i.mobile}}</td>
+                <td>{{i.special}}</td>
+                <td><a href="{% url 'deletedoctor' i.id %}" onclick="return confirm('Are you sure to delete?')" class="btn btn-danger">Delete</a></td>
+
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}
+{% include 'footer.html' %}

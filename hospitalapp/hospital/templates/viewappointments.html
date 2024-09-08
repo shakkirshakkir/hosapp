@@ -1,0 +1,52 @@
+{% include 'base.html' %}
+{% include 'navigation.html' %}
+{% block content %}
+<style>
+    body{
+        background-image: url('https://media.gettyimages.com/id/1295918822/photo/uses-laptop-while-talking-with-patient-stock-photo.jpg?s=2048x2048&w=gi&k=20&c=IwsyyGvTi2DUPw0B-qCFwYPngDjxc8e2PV_cXHN9jGk=');
+        background-size: cover;
+        no-repeat;
+        color: rgb(24, 22, 22);
+        sans-serif;
+        padding: 20px;
+        text-align: center;
+        
+
+
+    }
+</style><br>
+<div>
+    <h2>View Appointments</h2>
+    <table id="example" class="table table-light">
+        <thead>
+            <tr>
+                <th>Doctor Id</th>
+                <th>Doctor Name</th>
+                <th>Patient Name</th>
+
+                <th>Date</th>
+                <th>Time</th>
+                <th>Delete</th>
+
+
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in app %}
+            <tr>
+                <td><b>{{i.id}}</b></td>
+                <td><b>{{i.Doctor}}</b></td>
+                <td><b>{{i.Patient}}</b></td>
+                <td><b>{{i.date}}</b></td>
+                <td><b>{{i.time}}</b></td>
+
+                <td><a href="{% url 'deleteappointment' i.id %}" onclick="return confirm("Are you sure to delete?")" class="btn btn-danger">Delete</a></td>
+
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}
+{% include 'footer.html' %}

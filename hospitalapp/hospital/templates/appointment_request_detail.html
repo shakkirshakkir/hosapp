@@ -1,0 +1,28 @@
+<!-- {% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    Display appointment request details here
+    
+     {% if not appointment_request.is_approved %}
+      <form method="POST" action="{% url 'create_payment' request_id=appointment_request.id %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">Pay with PayPal</button>
+      </form>
+    {% endif %}
+  </div>
+{% endblock %} -->
+
+
+
+
+
+  <h2>Appointment Request Details</h2>
+<p>Requested Date: {{ appointment_request.requested_date }}</p>
+<p>Requested By: {{ appointment_request.user.get_full_name }}</p>
+<p>Reason: {{ appointment_request.reason }}</p>
+<p>Status: {% if appointment_request.is_approved %} Approved {% else %} Pending {% endif %}</p>
+
+ {% if not appointment_request.is_approved %}
+  <a href="{% url 'approve_appointment_request' request_id=appointment_request.id %}" class="btn btn-success">Approve Request</a>
+{% endif %}  

@@ -1,0 +1,43 @@
+ {% include 'base.html' %}
+{% include 'navigation.html' %}
+<style>
+    .mydivstyle:hover{
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0.3);
+        transform: translateY(-20px);
+        background-image: url('https://media.gettyimages.com/id/503850321/photo/doctor-checking-patients-ears-in-hospital.jpg?s=2048x2048&w=gi&k=20&c=HspMkRqcDEzPjJvirAYfyTb8xHv2LZ6HQR2BwnSmO-g=');
+  background-size: cover;
+  no-repeat;
+  color: black;
+  sans-serif;
+  padding: 20px;
+  text-align: center;
+    }
+</style>
+
+{% block content %}
+
+<div class="container" style="margin-top: 50px;">
+    <h1 class="text-center"> Contact us</h1>
+
+    <div class="row mt-5 text-center">
+      <div class="col-lg-3 col-sm-6 mydivstyle">
+<h4><i class="fas fa-phone-square"> Contact</i></h4><p class="font-weight-bold mt-3"><a href="tel:+8765789434">+8765789434</a></p>     </div>
+      <div class="col-lg-3 col-sm-6 mydivstyle">
+<h4><i class="fa fa-envelope"></i> Send email</h4>
+<p class="font-weight-bold mt-3"><a href="mail to:doctorhub@gmail.com">doctorhub@gmail.com</a></p>
+</div>
+      <div class="col-lg-3 col-sm-6 mydivstyle">
+<h4><i class="fa fa-address-card" area-hidden="true"></i>Office address</h4> 
+<p class="font-weight-bold mt-3"><a href="https://www.google.com/maps/place/kochi">Kochi,Eranakulam</a></p>     
+</div>
+<div class="col-lg-3 col-sm-6 mydivstyle" >
+    <h4><i class="fa fa-address-card" area-hidden="true"></i>Office time</h4> 
+    <p class="font-weght-bold mt-3"><b>10AM-6PM</b></p>
+     </div>
+    </div>
+
+    
+  </div>
+      
+{% endblock content %} 
+{% include 'footer.html' %}

@@ -1,0 +1,53 @@
+{% include 'base.html' %}
+{% include 'navigation.html' %}
+{% block content %}
+<style>
+    body{
+        background-image: url('https://media.gettyimages.com/id/1180156904/photo/male-and-female-nurse-checking-senior-mans-blood-pressure-on-house-call.jpg?s=2048x2048&w=gi&k=20&c=JbQ2PYaXaj8MLNaLKF8ONsvkXoVhGpGIeUDDV9QuNSc=');
+        background-size: cover;
+        no-repeat;
+        color: rgb(24, 22, 22);
+        sans-serif;
+        padding: 20px;
+        text-align: center;
+        
+
+
+    }
+</style><br>
+<div>
+    <h2>View Patient</h2>
+    <table id="example" class="table table-hover">
+        <thead>
+            <tr>
+                <th>Patient Id</th>
+                <th>Patient Name</th>
+                <th>Gender</th>
+
+                <th>Patient Mobile</th>
+                <th>Patient Address</th>
+
+                <th>Delete Patient</th>
+
+
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in pat %}
+            <tr>
+                <td><b>{{i.id}}</b></td>
+                <td><b>{{i.Name}}</b></td>
+                <td><b>{{i.gender}}</b></td>
+                <td><b>{{i.mobile}}</b></td>
+                <td><b>{{i.address}}</b></td>
+                <td><a href="{% url 'deletepatient' i.id %}" onclick="return confirm('Are you sure to delete?')" class="btn btn-danger">Delete</a></td>
+
+
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}
+{% include 'footer.html' %}

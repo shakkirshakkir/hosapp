@@ -1,0 +1,35 @@
+{% include 'base.html' %}
+{% include 'navigation.html' %}
+{% block content %}
+<style>
+    body{
+        background-image: url('https://media.gettyimages.com/id/1480522251/photo/asian-indian-female-doctor-is-talking-to-a-young-chinese-female-patient.jpg?s=2048x2048&w=gi&k=20&c=wnDu-7R5UHDyZlpRNlgW5OAp2-NQuwiRFSUubnA-bPc=');
+        background-size: cover;
+        no-repeat;
+        color: black;
+        sans-serif;
+        padding: 20px;
+        text-align: center;
+        
+
+
+    }
+</style>
+
+<div class="container">
+    <h2 class="text-center">Add Doctor</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <lable><b>Doctor Name</b></lable>
+        <input type="text" class="form-control" name="doctor">
+        <lable><b>Mobile</b></lable>
+        <input type="text" class="form-control" name="mobile">
+        <lable><b>Special</b></lable>
+        <input type="text" class="form-control" name="special"><br>
+        <input type="submit" value="submit" class="form-control btn btn-success">
+    </form>
+
+</div>
+
+{% endblock content %}
+{% include 'footer.html' %}

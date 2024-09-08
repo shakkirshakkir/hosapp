@@ -1,0 +1,247 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Form</title>
+    <script src="https://js.stripe.com/v3/"></script>
+    <style>
+        /* Custom styles */
+        body {
+            background-image: url('path/to/your/background-image.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        #card-type {
+            margin-bottom: 10px;
+        }
+
+        #card-element {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background: #fff;
+        }
+
+        #card-errors {
+            color: red;
+            margin-top: 10px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Secure Payment Form</h2>
+        <form action="{% url 'charge' %}" method="post" id="payment-form">
+            {% csrf_token %}
+            <div class="form-row">
+                <label for="card-type">Select Card Type:</label>
+                <select id="card-type" name="card-type">
+                    <option value="debit">Debit Card</option>
+                    <option value="credit">Credit Card</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label for="card-element">Card Details:</label>
+                <div id="card-element">
+                    <!-- A Stripe Element will be inserted here. -->
+                <!-- </div> -->
+                <!-- Used to display form errors. -->
+                <!-- <div id="card-errors" role="alert"></div>
+            </div> -->
+            <!-- Hidden input field to capture the Stripe token -->
+            <!-- <input type="hidden" name="stripeToken" id="stripeToken">
+            <button type="submit">Submit Payment</button>
+        </form>
+    </div>
+
+    <script>
+        var stripe = Stripe('{{ STRIPE_PUBLIC_KEY }}');
+        var elements = stripe.elements(); -->
+
+        <!-- // Create an instance of the card Element.
+        var card = elements.create('card');
+
+        // Add an instance of the card Element into the `card-element` div.
+        card.mount('#card-element');
+
+        // Handle form submission.
+        var form = document.getElementById('payment-form');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Retrieve selected card type (optional)
+            var cardType = document.getElementById('card-type').value;
+
+            stripe.createToken(card).then(function(result) {
+                if (result.error) {
+                    // Inform the user if there was an error.
+                    var errorElement = document.getElementById('card-errors');
+                    errorElement.textContent = result.error.message;
+                } else {
+                    // Send the token to your server
+                    var tokenInput = document.getElementById('stripeToken');
+                    tokenInput.value = result.token.id;
+
+                    // Optionally send card type to server
+                    var cardTypeInput = document.createElement('input');
+                    cardTypeInput.type = 'hidden';
+                    cardTypeInput.name = 'card-type';
+                    cardTypeInput.value = cardType;
+                    form.appendChild(cardTypeInput);
+
+                    form.submit();
+                }
+            });
+        });
+    </script>
+</body>
+</html>  -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enter Debit Card Details</title>
+    <style>
+        /* Custom styles */
+        body {
+            background-color: #f0f0f0;
+            background-image: url('https://media.gettyimages.com/id/1443222123/photo/indian-young-woman-at-home-stock-photo.jpg?s=2048x2048&w=gi&k=20&c=z-QYIt7bto3AoQyhxcEzNhGHkICgNNQbkfhdYkQVSVg=');
+
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            margin-bottom: 10px;
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 15px;
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Enter Debit Card Details</h2>
+        <form action="{% url 'process_payment' %}" method="post">
+            {% csrf_token %}
+            <label for="card_number">Card Number:</label>
+            <input type="text" id="card_number" name="card_number" placeholder="Enter your card number" required>
+
+            <label for="expiry">Expiry Date:</label>
+            <input type="text" id="expiry" name="expiry" placeholder="MM/YYYY" required>
+
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" name="cvv" placeholder="CVV" required>
+
+            <button type="submit">Submit Payment</button>
+        </form>
+        <p style="margin-top: 20px;">Don't have a debit card? <a href="javascript:void(0);" onclick="showStripeForm()">Enter card details securely</a></p>
+    </div>
+
+    <script>
+        function showStripeForm() {
+            // Implement your logic to display Stripe.js form or redirect to Stripe checkout
+            alert('Redirecting to enter card details securely with Stripe');
+            // Example: window.location.href = '/stripe_payment_form';
+        }
+    </script>
+</body>
+</html>

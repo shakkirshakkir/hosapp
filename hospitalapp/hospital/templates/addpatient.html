@@ -1,0 +1,37 @@
+{% include 'base.html' %}
+{% include 'navigation.html' %}
+{% block content %}
+<style>
+    body{
+        background-image: url('https://media.gettyimages.com/id/1245841808/photo/hospitals-across-india-conduct-mock-drill-to-check-covid-readiness.jpg?s=2048x2048&w=gi&k=20&c=cc5N5pcVCCFStfHIWmOeOpESXq-SO9wMhXiLAKO6yzc=');
+        background-size: cover;
+        no-repeat;
+        color: black;
+        sans-serif;
+        padding: 20px;
+        text-align: center;
+        
+
+
+    }
+</style>
+
+<div class="container">
+    <h2 class="text-center">Add Patient</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <lable><b>Name</b></lable>
+        <input type="text" class="form-control" name="patient">
+        <lable><b>Gender</b></lable>
+        <input type="text" class="form-control" name="gender">
+        <lable><b>Mobile</b></lable>
+        <input type="text" class="form-control" name="mobile">
+        <lable><b>Address</b></lable>
+        <input type="text" class="form-control" name="address"><br>
+        <input type="submit" value="submit" class="form-control btn btn-success">
+    </form>
+
+</div>
+
+{% endblock content %}
+{% include 'footer.html' %}
